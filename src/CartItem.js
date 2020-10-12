@@ -37,7 +37,10 @@ class CartItem extends React.Component{
         // this.setState({
         //     qty: this.state.qty + 1
         // });
-
+        // * if we write more than 1 setState() method in a single function it will not be called multiple times
+        // * neither will the component be refreshed multiple times rather a react will do batching
+        // * Batching means that multiple setState() mthods will be merged together into a single one
+        // * if in multiple setState() methods the value that is changed is same then the value that was called the last will be set
 
         // * Method - 2 -----------------> if we require previous state
         // * using a callback arrow function inside of setState() method
@@ -47,6 +50,34 @@ class CartItem extends React.Component{
                 qty: prevState.qty + 1
             }
         });
+        // * In this method two if there are multiple setState() then batching will happen 
+        // * but refresh will happen only once and all the return statements will execute
+        // * example below fucntion is written thrice
+        // this.setState((prevState) => {
+        //     return {
+        //         qty: prevState.qty + 1
+        //     }
+        // });
+        // * refresh once but qty will be changed to qty + 3
+
+        // * setState() is a async function i.e, it will not wait to be completed
+        // * example
+        // this.setState((prevState) => {
+        //     return {
+        //         qty: prevState.qty + 1
+        //     }
+        // });
+        // let x = this.state.qty;
+        // * we might not get the qty after changing in setState() in our x variable duw to async setState()
+        // * to counter this we will use another callback in our setState() so that it executes after first callback
+        // this.setState((prevState) => {
+        //     return {
+        //         qty: prevState.qty + 1
+        //     }
+        // }, () => {
+        //     let x = this.state.qty;
+        // });
+        // * now this will store in x only after first callback
 
         // console.log(this.state.qty);
     }
