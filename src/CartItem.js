@@ -1,6 +1,8 @@
 import React from 'react';
 
-class CartItem extends React.Component{
+
+const CartItem = (props) => {
+//class CartItem extends React.Component{
 
     // * ------- default state using the constructor --------
     // constructor(props) {
@@ -91,8 +93,8 @@ class CartItem extends React.Component{
     //     });
     // }
 
-    render(){
-        const {title, price, qty, img} = this.props.product;
+    //render(){
+        const {title, price, qty, img} = props.product;
         return (
             <div className="cart-item">
                 <div className="left-block">
@@ -105,14 +107,14 @@ class CartItem extends React.Component{
                     <div className="cart-item-actions">
                         {/* Buttons */}
                         {/* Method 1.1: Here we have used function at 'onClick' but to use 'this' here we need to bind 'this' to the function first */}
-                        <img title="Add more" src="https://www.flaticon.com/svg/static/icons/svg/1828/1828817.svg" alt="increase" className="action-icons" onClick={() => this.props.increaseQty(this.props.product)} />
-                        <img title="Delete more" src="https://www.flaticon.com/svg/static/icons/svg/753/753340.svg" alt="decrease" className="action-icons" onClick={() => this.props.decreaseQty(this.props.product)} />
-                        <img title="Remove from cart" src="https://www.flaticon.com/svg/static/icons/svg/3159/3159673.svg" alt="delete" className="action-icons" onClick={() => this.props.deleteProd(this.props.product)} />
+                        <img title="Add more" src="https://www.flaticon.com/svg/static/icons/svg/1828/1828817.svg" alt="increase" className="action-icons" onClick={() => props.increaseQty(props.product)} />
+                        <img title="Delete more" src="https://www.flaticon.com/svg/static/icons/svg/753/753340.svg" alt="decrease" className="action-icons" onClick={() => props.decreaseQty(props.product)} />
+                        <img title="Remove from cart" src="https://www.flaticon.com/svg/static/icons/svg/3159/3159673.svg" alt="delete" className="action-icons" onClick={() => props.deleteProd(props.product)} />
                     </div>
                 </div>
             </div>
         );
-    }
+    //}
 }
 
 // * this is to set the css styles after creating this object we will use it in our jsx in style attribute
