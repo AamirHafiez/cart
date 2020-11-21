@@ -97,10 +97,24 @@ getProductCount = () => {
     return count;
 }
 
+getTotalAmount = () => {
+    let total = 0;
+    let { product } = this.state;
+
+    product.forEach((i) => {
+        total += i.qty * i.price
+    });
+
+    return total;
+}
+
   render() {
     return (
       <div className="App">
-        <Navbar count= {this.getProductCount()} />
+        <Navbar 
+            count= {this.getProductCount()}
+            total = {this.getTotalAmount()} 
+        />
         <Cart
           handleIncreaseQuantity = {this.handleIncreaseQuantity}
           handleDecreaseQuantity = {this.handleDecreaseQuantity}

@@ -7,6 +7,9 @@ function Navbar(props){
             <img style={styles.cartIcon} src="https://www.flaticon.com/svg/static/icons/svg/3594/3594363.svg" alt="cart-icon" />
             <span style={styles.cartCount}>{props.count}</span>
           </div>
+          <div>
+            <span style={styles.totalTitle}><b>Total:</b> Rs. {props.total}/-</span>
+          </div>
         </div>
       );
 }
@@ -33,6 +36,10 @@ const styles = {
       position: 'absolute',
       right: 0,
       top: -9
+    },
+    totalTitle: {
+      color: "white",
+      fontSize: "1.2rem"
     }
 };
 
